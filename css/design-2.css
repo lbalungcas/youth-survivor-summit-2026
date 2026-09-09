@@ -1,0 +1,1735 @@
+/* ==========================================================================
+   DESIGN 2: RESTLESS DEVELOPMENT BRAND EDITION
+   Authentic brand identity: #FF8F13 (Restless Orange/Yellow), #050000 (Black),
+   #74C6CA (Restless Cyan), #004A59 (Deep Petrol Teal), solid 2px borders,
+   hard brutalist drop-shadows, and high-impact youth-led typography.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Variables & Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --rd-orange: #FF8F13;
+  --rd-orange-hover: #E07804;
+  --rd-black: #050000;
+  --rd-teal: #74C6CA;
+  --rd-teal-hover: #58B0B4;
+  --rd-deep-teal: #004A59;
+  --rd-crimson: #E2231A;
+  --rd-white: #FFFFFF;
+  --rd-offwhite: #FBF9F5;
+  --rd-gray-light: #F4F5F7;
+  --rd-gray-border: #E2E8F0;
+  --rd-gray-text: #4B5563;
+  --rd-gray-muted: #6B7280;
+
+  --rd-font-heading: 'League Spartan', 'Oswald', -apple-system, sans-serif;
+  --rd-font-body: 'Roboto', 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+  --rd-border: 2px solid #050000;
+  --rd-border-thick: 3px solid #050000;
+  --rd-shadow-sm: 3px 3px 0px #050000;
+  --rd-shadow: 4px 4px 0px #050000;
+  --rd-shadow-lg: 6px 6px 0px #050000;
+  --rd-shadow-hover: 2px 2px 0px #050000;
+
+  --rd-container-width: 1140px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--rd-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--rd-black);
+  background-color: var(--rd-offwhite);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   Floating Version Switcher Button
+   -------------------------------------------------------------------------- */
+.version-switcher {
+  position: fixed;
+  top: 18px;
+  right: 22px;
+  z-index: 10000;
+}
+
+.version-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #FFFFFF;
+  color: #050000;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-family: var(--rd-font-body);
+  border: 2px solid #050000;
+  box-shadow: var(--rd-shadow-sm);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.version-btn:hover {
+  transform: translate(-1px, -1px);
+  background: var(--rd-orange);
+  box-shadow: 5px 5px 0px #050000;
+}
+
+.version-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1D4ED8;
+}
+
+.version-name {
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.version-desc {
+  font-size: 11px;
+  color: #4B5563;
+  padding-left: 8px;
+  border-left: 1px solid #D1D5DB;
+}
+
+.version-arrow {
+  font-size: 15px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.version-btn:hover .version-arrow {
+  transform: translateX(-3px);
+}
+
+@media (max-width: 640px) {
+  .version-switcher {
+    top: auto;
+    bottom: 18px;
+    right: 18px;
+  }
+  .version-desc {
+    display: none;
+  }
+  .version-btn {
+    padding: 8px 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Layout Containers
+   -------------------------------------------------------------------------- */
+.rd-container {
+  width: 100%;
+  max-width: var(--rd-container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* --------------------------------------------------------------------------
+   Header & Navigation (Restless Development Style)
+   -------------------------------------------------------------------------- */
+.rd-topbar {
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 8px 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.rd-topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rd-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rd-topbar-badge {
+  display: inline-block;
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  padding: 1px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rd-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rd-topbar-link {
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.rd-topbar-link:hover {
+  color: #FFFFFF;
+}
+
+.rd-header {
+  background: #FFFFFF;
+  border-bottom: 2px solid var(--rd-black);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.rd-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.rd-brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.rd-logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.rd-brand-divider {
+  width: 2px;
+  height: 32px;
+  background: var(--rd-black);
+}
+
+.rd-brand-summit {
+  display: flex;
+  flex-direction: column;
+}
+
+.rd-summit-tag {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  color: var(--rd-black);
+  text-transform: uppercase;
+}
+
+.rd-summit-sub {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--rd-orange-hover);
+  text-transform: uppercase;
+}
+
+.rd-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.rd-nav-link {
+  font-family: var(--rd-font-heading);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--rd-black);
+  position: relative;
+  transition: color 0.2s;
+}
+
+.rd-nav-link:hover {
+  color: var(--rd-orange);
+}
+
+.rd-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--rd-orange);
+  transition: width 0.2s ease;
+}
+
+.rd-nav-link:hover::after {
+  width: 100%;
+}
+
+.rd-btn-header {
+  margin-left: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Restless Development Signature Buttons
+   -------------------------------------------------------------------------- */
+.rd-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 0;
+  border: var(--rd-border);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.rd-btn-primary {
+  background-color: var(--rd-orange);
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow);
+}
+
+.rd-btn-primary:hover {
+  background-color: var(--rd-orange-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.rd-btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--rd-shadow-hover);
+}
+
+.rd-btn-teal {
+  background-color: var(--rd-teal);
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow);
+}
+
+.rd-btn-teal:hover {
+  background-color: var(--rd-teal-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.rd-btn-black {
+  background-color: var(--rd-black);
+  color: #FFFFFF;
+  box-shadow: var(--rd-shadow);
+}
+
+.rd-btn-black:hover {
+  background-color: #212529;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--rd-orange);
+}
+
+.rd-btn-outline {
+  background-color: #FFFFFF;
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow);
+}
+
+.rd-btn-outline:hover {
+  background-color: var(--rd-orange);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Restless Marker Highlights & Badges
+   -------------------------------------------------------------------------- */
+.rd-highlight {
+  background-color: var(--rd-orange);
+  color: var(--rd-black);
+  padding: 2px 8px;
+  display: inline-block;
+  transform: skewX(-4deg);
+}
+
+.rd-highlight-teal {
+  background-color: var(--rd-teal);
+  color: var(--rd-black);
+  padding: 2px 8px;
+  display: inline-block;
+  transform: skewX(-4deg);
+}
+
+.rd-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 6px 14px;
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--rd-black);
+}
+
+.rd-pill-badge-orange {
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  border: 2px solid var(--rd-black);
+  box-shadow: var(--rd-shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section — Restless High Impact Aesthetic
+   -------------------------------------------------------------------------- */
+.rd-hero {
+  background: #FFFFFF;
+  border-bottom: var(--rd-border-thick);
+  padding: 70px 0 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle graphic diagonal backdrop */
+.rd-hero::before {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: -100px;
+  width: 500px;
+  height: 600px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 143, 19, 0.08),
+    rgba(255, 143, 19, 0.08) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+  pointer-events: none;
+}
+
+.rd-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.rd-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.rd-hero-title {
+  font-family: var(--rd-font-heading);
+  font-size: 58px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  color: var(--rd-black);
+  margin-bottom: 24px;
+}
+
+.rd-hero-title .title-block {
+  display: block;
+}
+
+.rd-hero-meta-strip {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 10px 18px;
+  margin-bottom: 24px;
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 2px solid var(--rd-black);
+}
+
+.rd-hero-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rd-meta-separator {
+  color: var(--rd-orange);
+}
+
+.rd-hero-desc {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--rd-dark-gray);
+  margin-bottom: 32px;
+  max-width: 620px;
+}
+
+.rd-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+/* Hero Right: Big Restless Youth Card */
+.rd-hero-card {
+  background: var(--rd-offwhite);
+  border: var(--rd-border-thick);
+  box-shadow: var(--rd-shadow-lg);
+  padding: 32px;
+  position: relative;
+}
+
+.rd-hero-card::after {
+  content: 'YOUTH-LED';
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border: 2px solid var(--rd-black);
+}
+
+.rd-hero-card-headline {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--rd-black);
+  margin-bottom: 16px;
+}
+
+.rd-hero-card-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--rd-gray-text);
+  margin-bottom: 20px;
+}
+
+.rd-hero-card-points {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.rd-hero-card-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rd-black);
+}
+
+.rd-point-check {
+  width: 20px;
+  height: 20px;
+  background: var(--rd-teal);
+  color: var(--rd-black);
+  border: 1.5px solid var(--rd-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Partner Logos Co-Branding Strip
+   -------------------------------------------------------------------------- */
+.rd-partners-strip {
+  background: var(--rd-gray-light);
+  border-bottom: var(--rd-border);
+  padding: 22px 0;
+}
+
+.rd-partners-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.rd-partners-label {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--rd-gray-muted);
+}
+
+.rd-partners-logos {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.rd-partner-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.rd-partner-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.rd-partner-item {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Signature Restless Stats Boxes
+   -------------------------------------------------------------------------- */
+.rd-stats-section {
+  padding: 60px 0;
+  background: #FFFFFF;
+  border-bottom: var(--rd-border);
+}
+
+.rd-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.rd-stat-box {
+  background: var(--rd-offwhite);
+  border: var(--rd-border);
+  box-shadow: var(--rd-shadow);
+  padding: 28px 20px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rd-stat-box:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.rd-stat-box-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--rd-orange);
+}
+
+.rd-stat-box:nth-child(2) .rd-stat-box-accent {
+  background: var(--rd-teal);
+}
+
+.rd-stat-box:nth-child(3) .rd-stat-box-accent {
+  background: var(--rd-deep-teal);
+}
+
+.rd-stat-box:nth-child(4) .rd-stat-box-accent {
+  background: var(--rd-black);
+}
+
+.rd-stat-number {
+  font-family: var(--rd-font-heading);
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--rd-black);
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.rd-stat-label {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--rd-gray-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Section Headers & Common Titles
+   -------------------------------------------------------------------------- */
+.rd-section {
+  padding: 80px 0;
+}
+
+.rd-section-header {
+  margin-bottom: 48px;
+}
+
+.rd-section-tag {
+  display: inline-block;
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border: 2px solid var(--rd-black);
+  margin-bottom: 16px;
+}
+
+.rd-section-title {
+  font-family: var(--rd-font-heading);
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: var(--rd-black);
+}
+
+.rd-section-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--rd-gray-text);
+  max-width: 760px;
+  margin-top: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   About Section — Restless Editorial Narrative
+   -------------------------------------------------------------------------- */
+.rd-about-section {
+  background: var(--rd-offwhite);
+  border-bottom: var(--rd-border);
+}
+
+.rd-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.rd-about-quote-box {
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 40px;
+  border: 2px solid var(--rd-black);
+  box-shadow: 8px 8px 0px var(--rd-orange);
+  position: relative;
+}
+
+.rd-about-quote-box::before {
+  content: '“';
+  font-family: var(--rd-font-heading);
+  font-size: 90px;
+  line-height: 1;
+  color: var(--rd-orange);
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  opacity: 0.3;
+}
+
+.rd-quote-text {
+  font-family: var(--rd-font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.rd-quote-author {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--rd-teal);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.rd-about-narrative p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--rd-dark-gray);
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Summit Pillars Cards (Restless Initiative Cards)
+   -------------------------------------------------------------------------- */
+.rd-pillars-section {
+  background: #FFFFFF;
+  border-bottom: var(--rd-border);
+}
+
+.rd-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.rd-pillar-card {
+  background: var(--rd-offwhite);
+  border: var(--rd-border);
+  box-shadow: var(--rd-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.rd-pillar-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.rd-pillar-header {
+  padding: 20px 24px;
+  border-bottom: var(--rd-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rd-pillar-card:nth-child(1) .rd-pillar-header {
+  background: var(--rd-orange);
+  color: var(--rd-black);
+}
+
+.rd-pillar-card:nth-child(2) .rd-pillar-header {
+  background: var(--rd-teal);
+  color: var(--rd-black);
+}
+
+.rd-pillar-card:nth-child(3) .rd-pillar-header {
+  background: var(--rd-deep-teal);
+  color: #FFFFFF;
+}
+
+.rd-pillar-num {
+  font-family: var(--rd-font-heading);
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rd-pillar-tag {
+  font-family: var(--rd-font-heading);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: #FFFFFF;
+  color: var(--rd-black);
+  border: 1.5px solid var(--rd-black);
+}
+
+.rd-pillar-body {
+  padding: 28px 24px;
+  flex: 1;
+}
+
+.rd-pillar-title {
+  font-family: var(--rd-font-heading);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.25;
+  text-transform: uppercase;
+  color: var(--rd-black);
+  margin-bottom: 14px;
+}
+
+.rd-pillar-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--rd-gray-text);
+  margin-bottom: 20px;
+}
+
+.rd-pillar-features {
+  list-style: none;
+}
+
+.rd-pillar-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--rd-black);
+  margin-bottom: 8px;
+}
+
+.rd-pillar-feature::before {
+  content: '■';
+  color: var(--rd-orange);
+  font-size: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   Summit Schedule Tabs
+   -------------------------------------------------------------------------- */
+.rd-schedule-section {
+  background: var(--rd-offwhite);
+  border-bottom: var(--rd-border);
+}
+
+/* Coming Soon Schedule Block */
+.rd-schedule-coming-soon {
+  background: #FFFFFF;
+  border: var(--rd-border-thick);
+  box-shadow: var(--rd-shadow-lg);
+  padding: 44px 40px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.rd-cs-badge {
+  display: inline-block;
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border: 2px solid var(--rd-black);
+  box-shadow: 3px 3px 0 #050000;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.rd-cs-title {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: clamp(22px, 4vw, 32px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--rd-black);
+  margin-bottom: 14px;
+}
+
+.rd-cs-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--rd-gray-text);
+  margin-bottom: 28px;
+  max-width: 720px;
+}
+
+.rd-cs-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.rd-cs-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--rd-offwhite);
+  border: 2px solid var(--rd-black);
+  padding: 16px;
+  box-shadow: 3px 3px 0 #050000;
+}
+
+.rd-cs-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.rd-cs-item strong {
+  display: block;
+  font-family: var(--rd-font-heading);
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--rd-black);
+  margin-bottom: 4px;
+}
+
+.rd-cs-item span {
+  font-size: 12.5px;
+  color: var(--rd-gray-text);
+  line-height: 1.4;
+  display: block;
+}
+
+.rd-cs-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.rd-schedule-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.rd-tab-btn {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: var(--rd-border);
+  background: #FFFFFF;
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rd-tab-btn.active {
+  background: var(--rd-orange);
+  box-shadow: var(--rd-shadow);
+  transform: translate(-1px, -1px);
+}
+
+.rd-tab-btn:hover:not(.active) {
+  background: #F3F4F6;
+}
+
+.rd-schedule-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rd-session-card {
+  background: #FFFFFF;
+  border: var(--rd-border);
+  box-shadow: var(--rd-shadow-sm);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.rd-session-card:hover {
+  box-shadow: var(--rd-shadow);
+  transform: translate(-2px, -2px);
+}
+
+.rd-session-time {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--rd-black);
+  background: var(--rd-gray-light);
+  padding: 8px 14px;
+  border: 1.5px solid var(--rd-black);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.rd-session-info h4 {
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--rd-black);
+  margin-bottom: 6px;
+}
+
+.rd-session-info p {
+  font-size: 14px;
+  color: var(--rd-gray-text);
+  line-height: 1.5;
+}
+
+.rd-session-tag {
+  display: inline-block;
+  background: var(--rd-teal);
+  color: var(--rd-black);
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1.5px solid var(--rd-black);
+}
+
+/* --------------------------------------------------------------------------
+   Organising Committee Grid (Restless Youth Leaders)
+   -------------------------------------------------------------------------- */
+.rd-committee-section {
+  background: #FFFFFF;
+  border-bottom: var(--rd-border);
+}
+
+.rd-committee-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.rd-leader-card {
+  background: var(--rd-offwhite);
+  border: var(--rd-border);
+  box-shadow: var(--rd-shadow);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.rd-leader-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.rd-leader-photo-wrap {
+  position: relative;
+  background: radial-gradient(circle, #F8FAFC 0%, #E2E8F0 100%);
+  border-bottom: var(--rd-border);
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rd-leader-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #050000;
+  box-shadow: 3px 3px 0px var(--rd-orange);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #FFFFFF;
+  display: block;
+}
+
+.rd-leader-card:hover .rd-leader-img {
+  transform: scale(1.06);
+  box-shadow: 5px 5px 0px #050000;
+}
+
+.rd-leader-country-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--rd-black);
+  color: #FFFFFF;
+  font-family: var(--rd-font-heading);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid #FFFFFF;
+}
+
+.rd-leader-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rd-leader-name-banner {
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  display: inline-block;
+  border: 1px solid var(--rd-black);
+}
+
+.rd-leader-name {
+  font-family: var(--rd-font-heading);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.rd-leader-role {
+  font-family: var(--rd-font-heading);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--rd-orange-hover);
+  margin-bottom: 12px;
+}
+
+.rd-leader-bio {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--rd-gray-text);
+}
+
+/* --------------------------------------------------------------------------
+   Safeguarding Section (Trauma-Informed Safe Spaces)
+   -------------------------------------------------------------------------- */
+.rd-safeguarding-section {
+  background: var(--rd-offwhite);
+  border-bottom: var(--rd-border);
+}
+
+.rd-safeguarding-card {
+  background: #FFFFFF;
+  border: var(--rd-border-thick);
+  box-shadow: var(--rd-shadow-lg);
+  padding: 48px;
+  position: relative;
+}
+
+.rd-safeguarding-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--rd-orange),
+    var(--rd-orange) 20px,
+    var(--rd-black) 20px,
+    var(--rd-black) 40px,
+    var(--rd-teal) 40px,
+    var(--rd-teal) 60px
+  );
+}
+
+.rd-safeguarding-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.rd-safe-badge {
+  background: var(--rd-black);
+  color: var(--rd-orange);
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 2px solid var(--rd-black);
+}
+
+.rd-safeguarding-title {
+  font-family: var(--rd-font-heading);
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--rd-black);
+}
+
+.rd-safeguarding-body p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--rd-dark-gray);
+  margin-bottom: 16px;
+}
+
+.rd-safeguarding-body a {
+  color: var(--rd-black);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--rd-orange);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+.rd-safeguarding-body a:hover {
+  background: var(--rd-orange);
+  text-decoration: none;
+}
+
+.rd-safeguarding-box {
+  background: #FFFBEB;
+  border: 2px solid var(--rd-orange);
+  padding: 20px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rd-safe-icon {
+  font-size: 28px;
+}
+
+.rd-safe-box-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #92400E;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Banner
+   -------------------------------------------------------------------------- */
+.rd-cta-banner {
+  background: var(--rd-black);
+  color: #FFFFFF;
+  padding: 70px 0;
+  text-align: center;
+  border-bottom: var(--rd-border-thick);
+  position: relative;
+}
+
+.rd-cta-headline {
+  font-family: var(--rd-font-heading);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.rd-cta-sub {
+  font-size: 18px;
+  color: #D1D5DB;
+  max-width: 650px;
+  margin: 0 auto 32px auto;
+}
+
+.rd-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   Footer (Restless Development Corporate Identity)
+   -------------------------------------------------------------------------- */
+.rd-footer {
+  background: var(--rd-black);
+  color: #9CA3AF;
+  padding: 60px 0 30px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.rd-footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.rd-footer-brand {
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rd-footer-logo {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.rd-footer-motto {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.rd-footer-charity-info {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.rd-footer-col h5 {
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.rd-footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rd-footer-link {
+  color: #9CA3AF;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.rd-footer-link:hover {
+  color: var(--rd-orange);
+}
+
+.rd-social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.rd-social-icon {
+  width: 36px;
+  height: 36px;
+  background: #1F2937;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #374151;
+  text-decoration: none;
+  font-family: var(--rd-font-heading);
+  font-weight: 900;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.rd-social-icon:hover {
+  background: var(--rd-orange);
+  color: var(--rd-black);
+  border-color: var(--rd-orange);
+}
+
+.rd-footer-bottom {
+  border-top: 1px solid #1F2937;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12px;
+  color: #6B7280;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Media Queries & Mobile Optimization
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .rd-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .rd-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .rd-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-committee-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .rd-hero-title {
+    font-size: clamp(32px, 7vw, 44px);
+  }
+  .rd-nav-links {
+    display: none;
+  }
+  .rd-about-grid {
+    grid-template-columns: 1fr;
+  }
+  .rd-partners-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .rd-partners-logos {
+    justify-content: center;
+    gap: 24px;
+  }
+  .rd-partner-logo-img {
+    height: 40px;
+    max-width: 160px;
+  }
+  .rd-session-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rd-footer-grid {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Floating Switcher on Mobile: Fixed bottom pill to not collide with header */
+  .version-switcher {
+    top: auto;
+    bottom: 16px;
+    right: 16px;
+  }
+  .version-btn {
+    padding: 8px 16px;
+    gap: 8px;
+  }
+  .version-desc {
+    display: none;
+  }
+  .version-name {
+    font-size: 11.5px;
+  }
+
+  .rd-container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .rd-section {
+    padding: 44px 0;
+  }
+  .rd-section-header {
+    margin-bottom: 30px;
+  }
+  .rd-section-title {
+    font-size: clamp(24px, 7.5vw, 34px);
+    line-height: 1.15;
+  }
+  .rd-section-subtitle {
+    font-size: 15px;
+  }
+
+  /* Topbar & Header Mobile */
+  .rd-topbar {
+    font-size: 11px;
+    padding: 6px 0;
+  }
+  .rd-topbar-right {
+    display: none;
+  }
+  .rd-brand-cluster {
+    gap: 10px;
+  }
+  .rd-logo-img {
+    height: 32px;
+  }
+  .rd-brand-divider {
+    height: 24px;
+  }
+  .rd-summit-tag {
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
+  }
+  .rd-summit-sub {
+    font-size: 10px;
+  }
+
+  /* Hero Section Mobile */
+  .rd-hero-section {
+    padding: 28px 0 40px 0;
+  }
+  .rd-hero-badges {
+    margin-bottom: 14px;
+    gap: 8px;
+  }
+  .rd-badge {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+  .rd-hero-title {
+    font-size: clamp(28px, 8.5vw, 40px);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .rd-hero-meta-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+  .rd-meta-separator {
+    display: none;
+  }
+  .rd-hero-desc {
+    font-size: 15.5px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .rd-hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .rd-hero-actions .rd-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  .rd-hero-card {
+    padding: 20px 16px;
+    box-shadow: 5px 5px 0px #050000;
+  }
+  .rd-hero-card-headline {
+    font-size: 18px;
+  }
+  .rd-hero-card-text {
+    font-size: 13.5px;
+  }
+
+  /* Stats & Pillars */
+  .rd-stats-section {
+    padding: 36px 0;
+  }
+  .rd-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .rd-stat-card {
+    padding: 20px 16px;
+    box-shadow: 4px 4px 0px #050000;
+  }
+  .rd-stat-num {
+    font-size: 38px;
+  }
+  .rd-stat-desc {
+    font-size: 11.5px;
+  }
+  .rd-pillar-card {
+    box-shadow: 5px 5px 0px #050000;
+  }
+  .rd-pillar-body {
+    padding: 20px 16px;
+  }
+  .rd-pillar-title {
+    font-size: 19px;
+  }
+
+  /* Schedule Coming Soon Mobile */
+  .rd-schedule-coming-soon {
+    padding: 24px 16px;
+    box-shadow: 5px 5px 0px #050000;
+  }
+  .rd-cs-highlights {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rd-cs-cta .rd-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Committee Grid Mobile */
+  .rd-committee-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .rd-committee-card {
+    box-shadow: 5px 5px 0px #050000;
+  }
+  .rd-leader-info {
+    padding: 20px 16px;
+  }
+
+  /* Safeguarding & CTA Mobile */
+  .rd-safeguard-box {
+    padding: 24px 16px;
+    box-shadow: 5px 5px 0px #050000;
+  }
+  .rd-cta-banner {
+    padding: 44px 16px;
+  }
+  .rd-cta-headline {
+    font-size: 26px;
+  }
+  .rd-cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .rd-cta-buttons .rd-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Footer Mobile */
+  .rd-footer {
+    padding: 40px 0 24px 0;
+  }
+  .rd-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

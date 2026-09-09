@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="100%" height="100%">
+  <g transform="rotate(-3, 80, 25)">
+    <rect x="0" y="4" width="170" height="34" fill="#111111" rx="2"/>
+    <text x="85" y="29" text-anchor="middle" font-family="'League Spartan', 'Impact', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF" letter-spacing="2">RESTLESS</text>
+  </g>
+  <text x="82" y="60" text-anchor="middle" font-family="'League Spartan', 'Arial Black', sans-serif" font-weight="900" font-size="20" fill="#111111" letter-spacing="1">DEVELOPMENT</text>
+</svg>

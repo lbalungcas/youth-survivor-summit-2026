@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="100%" height="100%">
+  <!-- Globe icon -->
+  <g transform="translate(24, 30)">
+    <circle cx="0" cy="0" r="20" fill="none" stroke="#0284C7" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="10" ry="20" fill="none" stroke="#0284C7" stroke-width="1.5"/>
+    <line x1="-20" y1="0" x2="20" y2="0" stroke="#0284C7" stroke-width="1.5"/>
+    <ellipse cx="0" cy="0" rx="23" ry="12" fill="none" stroke="#38BDF8" stroke-width="1.5" transform="rotate(-30)"/>
+    <!-- Small youth stars -->
+    <circle cx="15" cy="-12" r="3" fill="#0284C7"/>
+    <circle cx="-16" cy="10" r="2.5" fill="#38BDF8"/>
+  </g>
+  <!-- Text -->
+  <text x="56" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="12" fill="#0284C7" letter-spacing="0.5">GLOBAL YOUTH-LED MOVEMENT</text>
+  <text x="56" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10.5" fill="#0284C7" letter-spacing="0.8">ON ENDING VIOLENCE</text>
+  <text x="56" y="47" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10.5" fill="#0284C7" letter-spacing="0.8">AGAINST CHILDREN</text>
+</svg>
