@@ -1,108 +1,45 @@
 /* ==========================================================================
-   DESIGN 1: CLASSIC & CLEAN — Original faithful reproduction
+   DESIGN 1: CLASSIC & CLEAN — with Restless Development Branding
+   Color palette, highlights, and button styles from Restless brand
    ========================================================================== */
-
-/* Version Switcher Floating Widget */
-.version-switcher {
-  position: fixed;
-  top: 18px;
-  right: 22px;
-  z-index: 10000;
-}
-
-.version-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #050000;
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border-radius: 9999px;
-  text-decoration: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.2), 0 0 0 2px #FF8F13;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-
-.version-btn:hover {
-  transform: translateY(-2px);
-  background: #FF8F13;
-  color: #050000;
-  box-shadow: 0 8px 24px rgba(255,143,19,0.45), 0 0 0 2px #050000;
-}
-
-.version-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #FF8F13;
-  box-shadow: 0 0 8px #FF8F13;
-}
-
-.version-btn:hover .version-dot {
-  background: #050000;
-  box-shadow: none;
-}
-
-.version-name {
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 800;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.version-desc {
-  font-size: 11px;
-  opacity: 0.85;
-  padding-left: 8px;
-  border-left: 1px solid rgba(255,255,255,0.3);
-}
-
-.version-btn:hover .version-desc {
-  border-left-color: rgba(0,0,0,0.3);
-}
-
-.version-arrow {
-  font-size: 15px;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
-
-.version-btn:hover .version-arrow {
-  transform: translateX(3px);
-}
-
-@media (max-width: 640px) {
-  .version-switcher {
-    top: auto;
-    bottom: 18px;
-    right: 18px;
-  }
-  .version-desc {
-    display: none;
-  }
-  .version-btn {
-    padding: 8px 16px;
-  }
-}
 
 /* ===== MAIN PAGE STYLES ===== */
 .yss-page {
-  --yss-blue: #1D4ED8;
-  --yss-blue-hover: #1E40AF;
-  --yss-crimson: #E11D48;
-  --yss-crimson-hover: #BE123C;
-  --yss-black: #111111;
+  /* Restless Development Color Palette */
+  --rd-orange: #FF8F13;
+  --rd-orange-hover: #E07804;
+  --rd-black: #050000;
+  --rd-teal: #74C6CA;
+  --rd-teal-hover: #58B0B4;
+  --rd-deep-teal: #004A59;
+  --rd-white: #FFFFFF;
+  --rd-offwhite: #FBF9F5;
+  --rd-gray-light: #F4F5F7;
+  --rd-gray-border: #E2E8F0;
+  --rd-gray-text: #4B5563;
+  --rd-gray-muted: #6B7280;
+
+  /* Legacy variables mapped to brand */
+  --yss-blue: #004A59;
+  --yss-blue-hover: #003845;
+  --yss-crimson: #FF8F13;
+  --yss-crimson-hover: #E07804;
+  --yss-black: #050000;
   --yss-border: #E2E8F0;
-  --yss-badge-lime: #D2F874;
-  --yss-badge-lime-text: #111111;
-  --yss-badge-black: #111111;
+  --yss-badge-lime: #FF8F13;
+  --yss-badge-lime-text: #050000;
+  --yss-badge-black: #050000;
   --yss-badge-black-text: #FFFFFF;
   --yss-font-heading: 'League Spartan', -apple-system, BlinkMacSystemFont, sans-serif;
   --yss-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --yss-container-width: 1060px;
+
+  /* Brutalist border/shadow tokens */
+  --rd-border: 2px solid #050000;
+  --rd-shadow-sm: 3px 3px 0px #050000;
+  --rd-shadow: 4px 4px 0px #050000;
+  --rd-shadow-lg: 6px 6px 0px #050000;
+  --rd-shadow-hover: 2px 2px 0px #050000;
 
   width: 100%;
   margin-top: 0;
@@ -129,38 +66,59 @@
 }
 
 /* Colors */
-.yss-page .yss-text-blue { color: var(--yss-blue); }
-.yss-page .yss-text-crimson { color: var(--yss-crimson); }
+.yss-page .yss-text-blue { color: var(--rd-deep-teal); }
+.yss-page .yss-text-crimson { color: var(--rd-orange); }
 .yss-page .yss-text-black { color: var(--yss-black); }
 
-/* Buttons */
+/* ==========================================================================
+   RESTLESS BRAND BUTTONS — Brutalist style with hard drop-shadows
+   ========================================================================== */
 .yss-page .yss-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 42px;
-  border-radius: 9999px;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 0;
   font-family: var(--yss-font-heading);
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: var(--rd-border);
   cursor: pointer;
-  border: none;
+  transition: all 0.15s ease-in-out;
 }
 
 .yss-page .yss-btn-crimson {
-  background-color: var(--yss-crimson);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+  background-color: var(--rd-orange);
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow);
 }
 
 .yss-page .yss-btn-crimson:hover {
-  background-color: var(--yss-crimson-hover);
-  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
-  transform: translateY(-2px);
+  background-color: var(--rd-orange-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
+}
+
+.yss-page .yss-btn-crimson:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--rd-shadow-hover);
+}
+
+/* Teal button variant */
+.yss-page .yss-btn-teal {
+  background-color: var(--rd-teal);
+  color: var(--rd-black);
+  box-shadow: var(--rd-shadow);
+}
+
+.yss-page .yss-btn-teal:hover {
+  background-color: var(--rd-teal-hover);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
 }
 
 /* Header */
@@ -204,6 +162,17 @@
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   RESTLESS BRAND HIGHLIGHT — Orange underline/background style
+   ========================================================================== */
+.yss-page .yss-highlight {
+  color: var(--yss-black);
+  font-weight: 700;
+  background: linear-gradient(to top, rgba(255, 143, 19, 0.3) 0%, rgba(255, 143, 19, 0.3) 35%, transparent 35%);
+  padding: 0 2px;
+  text-decoration: none;
+}
+
 /* Partners */
 .yss-page .yss-partners { padding: 20px 0 45px 0; }
 
@@ -233,11 +202,11 @@
   display: block;
 }
 
-/* Illustration Cards */
+/* Illustration Cards — now with brand borders */
 .yss-page .yss-illustration-card {
-  background-color: #FAFAFA;
-  border: 2px dashed #CBD5E1;
-  border-radius: 14px;
+  background-color: var(--rd-offwhite);
+  border: var(--rd-border);
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -245,12 +214,14 @@
   text-align: center;
   padding: 32px 20px;
   min-height: 220px;
-  transition: all 0.25s ease;
+  box-shadow: var(--rd-shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .yss-page .yss-illustration-card:hover {
-  border-color: var(--yss-blue);
-  background-color: #F8FAFC;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--rd-shadow-lg);
+  border-color: var(--rd-orange);
 }
 
 .yss-page .yss-illustration-card-title {
@@ -295,7 +266,6 @@
 }
 
 .yss-page .yss-about-text { font-size: 18px; line-height: 1.7; color: var(--yss-black); font-weight: 500; }
-.yss-page .yss-highlight { color: var(--yss-black); font-weight: 700; }
 
 /* Pillars */
 .yss-page .yss-pillars { padding: 40px 0 60px 0; }
@@ -345,6 +315,7 @@
   align-items: center;
 }
 
+/* Avatar Frame — Brand border style */
 .yss-page .yss-avatar-frame {
   width: 150px;
   height: 150px;
@@ -355,7 +326,7 @@
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   background: #F1F5F9;
   overflow: hidden;
-  border: 3px solid #E2E8F0;
+  border: 3px solid var(--rd-black);
 }
 
 .yss-page .yss-avatar-img {
@@ -400,13 +371,14 @@
 
 .yss-page .yss-member-card:hover .yss-avatar-frame {
   transform: scale(1.05);
-  border-color: var(--yss-blue);
+  border-color: var(--rd-orange);
 }
 
+/* Name Badge — Restless Orange brand style */
 .yss-page .yss-member-badge {
   display: inline-block;
   padding: 5px 22px;
-  border-radius: 9999px;
+  border-radius: 0;
   font-family: var(--yss-font-heading);
   font-size: 13.5px;
   font-weight: 800;
@@ -416,13 +388,14 @@
   margin-top: -14px;
   z-index: 2;
   position: relative;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--rd-black);
+  box-shadow: var(--rd-shadow-sm);
 }
 
 .yss-page .yss-badge-lime-style,
 .yss-page .yss-badge-black-style {
-  background-color: var(--yss-badge-lime);
-  color: var(--yss-badge-lime-text);
+  background-color: var(--rd-orange);
+  color: var(--rd-black);
 }
 
 .yss-page .yss-member-bio {
@@ -454,24 +427,26 @@
 }
 
 .yss-page .yss-safeguarding-content a {
-  color: var(--yss-black);
+  color: var(--rd-deep-teal);
   text-decoration: underline;
   font-weight: 600;
   transition: color 0.2s ease;
 }
 
-.yss-page .yss-safeguarding-content a:hover { color: var(--yss-blue); }
+.yss-page .yss-safeguarding-content a:hover { color: var(--rd-orange); }
 
-/* Footer */
+/* Footer — brand style */
 .yss-page .yss-footer {
-  border-top: 1px solid var(--yss-border);
+  border-top: var(--rd-border);
   padding: 32px 0;
   text-align: center;
   font-size: 14px;
   color: #71717A;
 }
 
-/* Responsive & Mobile Optimization */
+/* ==========================================================================
+   Responsive & Mobile Optimization
+   ========================================================================== */
 @media (max-width: 900px) {
   .yss-page .yss-impact-grid { grid-template-columns: 1fr; gap: 32px; }
   .yss-page .yss-pillars-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -524,7 +499,7 @@
     width: 100%;
     max-width: 320px;
     padding: 14px 24px;
-    font-size: 14px;
+    font-size: 13px;
   }
 
   /* Partners strip mobile */
