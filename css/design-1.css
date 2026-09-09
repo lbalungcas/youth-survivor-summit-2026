@@ -163,8 +163,27 @@
 }
 
 /* ==========================================================================
-   RESTLESS BRAND HIGHLIGHT — Orange underline/background style
+   RESTLESS BRAND HIGHLIGHTS — Signature marker boxes & inline highlights
    ========================================================================== */
+.yss-page .rd-highlight {
+  background-color: var(--rd-orange);
+  color: var(--rd-black);
+  padding: 2px 14px;
+  display: inline-block;
+  transform: skewX(-4deg);
+  line-height: 1.1;
+  letter-spacing: normal;
+}
+
+.yss-page .rd-highlight-teal {
+  background-color: var(--rd-teal);
+  color: var(--rd-black);
+  padding: 2px 14px;
+  display: inline-block;
+  transform: skewX(-4deg);
+  line-height: 1.1;
+}
+
 .yss-page .yss-highlight {
   color: var(--yss-black);
   font-weight: 700;
