@@ -315,7 +315,56 @@
 .yss-page .yss-schedule-cta { text-align: center; margin-top: 10px; }
 
 /* Committee */
-.yss-page .yss-committee { padding: 60px 0 80px 0; }
+.yss-page .yss-committee {
+  padding: 60px 0 80px 0;
+  overflow: visible;
+}
+
+.yss-page .yss-committee-inner {
+  position: relative;
+}
+
+.yss-page .yss-committee-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.yss-page .yss-decor-illustration {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Side illustrations — match mockup placement around the member grid */
+.yss-page .yss-decor-megaphone {
+  width: min(175px, 18vw);
+  left: max(-72px, -8vw);
+  top: 0;
+}
+
+.yss-page .yss-decor-lantern {
+  width: min(165px, 17vw);
+  left: max(-68px, -7vw);
+  top: 58%;
+  transform: translateY(-50%);
+}
+
+.yss-page .yss-decor-hands-support {
+  width: min(185px, 19vw);
+  right: max(-76px, -8vw);
+  top: 42%;
+  transform: translateY(-50%);
+}
+
+.yss-page .yss-committee-header,
+.yss-page .yss-committee-grid {
+  position: relative;
+  z-index: 1;
+}
+
 .yss-page .yss-committee-header { text-align: center; margin-bottom: 50px; }
 
 .yss-page .yss-committee-grid {
@@ -485,6 +534,7 @@
   .yss-page .yss-impact-grid { grid-template-columns: 1fr; gap: 32px; }
   .yss-page .yss-pillars-grid { grid-template-columns: 1fr; gap: 36px; }
   .yss-page .yss-partners-wrap { gap: 32px; }
+  .yss-page .yss-committee-decor { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -574,6 +624,9 @@
   /* Committee Grid */
   .yss-page .yss-committee {
     padding: 40px 0 60px 0;
+  }
+  .yss-page .yss-committee-decor {
+    display: none;
   }
   .yss-page .yss-committee-header {
     margin-bottom: 36px;
