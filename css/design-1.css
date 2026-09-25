@@ -535,27 +535,32 @@
   .yss-page .yss-pillars-grid { grid-template-columns: 1fr; gap: 36px; }
   .yss-page .yss-partners-wrap { gap: 32px; }
 
-  /* Committee decor: compact floating strip above the title (mobile/tablet) */
+  /* Committee decor: same side placement as desktop, scaled — may overlap content */
   .yss-page .yss-committee-decor {
-    position: static;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(10px, 4vw, 24px);
-    margin: 0 auto 16px auto;
-    padding: 8px 12px;
-    max-width: 360px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 2px solid var(--yss-black);
-    box-shadow: var(--rd-shadow-sm);
-    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
   }
 
-  .yss-page .yss-decor-illustration {
-    position: static;
-    transform: none;
-    width: clamp(56px, 16vw, 80px);
-    flex-shrink: 0;
+  .yss-page .yss-decor-megaphone {
+    width: clamp(88px, 22vw, 130px);
+    left: max(-20px, -3vw);
+    top: 56px;
+  }
+
+  .yss-page .yss-decor-lantern {
+    width: clamp(80px, 20vw, 120px);
+    left: max(-16px, -2.5vw);
+    top: 58%;
+    transform: translateY(-50%);
+  }
+
+  .yss-page .yss-decor-hands-support {
+    width: clamp(92px, 23vw, 135px);
+    right: max(-20px, -3vw);
+    left: auto;
+    top: 42%;
+    transform: translateY(-50%);
   }
 }
 
