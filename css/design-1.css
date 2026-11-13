@@ -129,8 +129,6 @@
 .yss-page .yss-hero-meta { margin-bottom: 26px; }
 .yss-page .yss-hero-date { font-size: 19px; font-weight: 600; color: var(--yss-black); }
 .yss-page .yss-hero-location { font-size: 17px; font-weight: 500; color: #3F3F46; }
-.yss-page .yss-hero-cta { margin-bottom: 36px; }
-
 .yss-page .yss-hero-tagline {
   font-size: 19px;
   font-weight: 500;
@@ -138,6 +136,12 @@
   max-width: 780px;
   margin: 0 auto;
   line-height: 1.5;
+}
+
+.yss-page .yss-hero-cta {
+  margin-top: 32px;
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 /* ==========================================================================
